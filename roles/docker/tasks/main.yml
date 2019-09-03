@@ -1,0 +1,18 @@
+- name: Copy docker-ce.repo
+  copy: src={{roles_path}}/docker/files/docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
+
+- name: Install Docker
+  shell: yum install -y docker-ce
+
+- name: Create docker dir
+  shell: mkdir /etc/docker
+
+- name: Set docker registry
+  template: src=daemon.json.j2 dest=/etc/docker/daemon.json
+
+- name: enabled service Docker
+  service: name=docker enabled=yes
+
+- name: Run Docker
+  service: name=docker state=started
+

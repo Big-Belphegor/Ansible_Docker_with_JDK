@@ -1,0 +1,8 @@
+- hosts: storage
+  user: root
+  vars:
+    roles_path: /usr/local/src/Deploy_Docker_with_JDK/roles
+    docker_registry: https://registry.docker-cn.com
+  roles:
+    - docker
+    - jdk

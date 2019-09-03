@@ -1,0 +1,4 @@
+- name: Copy jdk-8u111-linux-x64.rpm
+  copy: src={{roles_path}}/jdk/files/jdk-8u111-linux-x64.rpm dest=/usr/local/src/jdk-8u111-linux-x64.rpm
+- name: Install JDK
+  shell: rpm -ivh /usr/local/src/jdk-8u111-linux-x64.rpm
